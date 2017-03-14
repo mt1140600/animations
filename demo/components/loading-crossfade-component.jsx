@@ -36,7 +36,7 @@ var LoadingCrossfadeComponent = React.createClass({
 
   getDefaultProps: function () {
     return {
-      duration: 350,
+      duration: 1000,
     };
   },
 

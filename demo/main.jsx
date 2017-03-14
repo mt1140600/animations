@@ -5,12 +5,13 @@ var React = require('react');
 require('velocity-animate');
 require('velocity-animate/velocity.ui');
 
-var CrossfadeExample = require('./examples/crossfade-example');
+// var CrossfadeExample = require('./examples/crossfade-example');
 var FlapBox = require('./examples/flap-box');
 var ScrollingGroup = require('./examples/scrolling-group');
 var ToggleBox = require('./examples/toggle-box');
+var Animation = require('./examples/animation');
 var TriggerBox = require('./examples/trigger-box');
-
+var CrossfadeExample = require('./examples/crossfade-example');
 var Demo = React.createClass({
   render: function () {
     var boxStyle = {
@@ -44,8 +45,8 @@ var MainComponent = React.createClass({
   render: function () {
     return (
       <div className="flex-box flex-wrap">
-        <Demo title="Property Change"><ToggleBox/></Demo>
-        <Demo title="On Demand"><TriggerBox/></Demo>
+        <Demo title="Property Change"><Animation/></Demo>
+        <Demo title="On Demand"><ToggleBox/></Demo>
         <Demo title="Custom Animation"><FlapBox/></Demo>
         <Demo title="Custom Transition Group"><ScrollingGroup/></Demo>
         <Demo title="Crossfade"><CrossfadeExample/></Demo>

@@ -4,7 +4,7 @@
   "description": "React components to wrap Velocity animations",
   "main": "index.js",
   "scripts": {
-    "demo": "./node_modules/.bin/webpack-dev-server --progress --colors --content-base demo --hot --inline --config demo/webpack.config.js"
+    "demo": "./node_modules/.bin/webpack-dev-server --port 8086 --progress --colors --content-base demo --hot --inline --config demo/webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -22,8 +22,11 @@
   },
   "homepage": "https://github.com/twitter-fabric/velocity-react#readme",
   "dependencies": {
+    "@types/react-addons-css-transition-group": "^15.0.1",
     "lodash": "^3.10.1",
+    "react-addons-css-transition-group": "^15.4.2",
     "react-addons-transition-group": "^0.14.0 || ^15.0.0",
+    "react-alert": "^1.0.14",
     "velocity-animate": "^1.4.0"
   },
   "peerDependencies": {

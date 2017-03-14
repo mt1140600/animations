@@ -1,4 +1,6 @@
 var React = require('react');
+var alertContainer = require('react-alert');
+import AlertContainer from 'react-alert';
 var VelocityComponent = require('../../velocity-component');
 var tweenState = require('react-tween-state');
 var s = require('underscore.string');
@@ -44,6 +46,13 @@ var ToggleBox = React.createClass({
       effect: EFFECTS[0],
       isIn: true,
       counter: 0,
+      alertOptions : {
+        offset: 14,
+        position: 'bottom left',
+        theme: 'dark',
+        time: 5000,
+        transition: 'scale'
+      },
     };
   },
 
@@ -74,6 +83,14 @@ var ToggleBox = React.createClass({
     });
   },
 
+  showAlert: function(){
+    msg.show('Some text or component', {
+      time: 2000,
+      type: 'success',
+      // icon: <img src="../1.png"/>
+    });
+  },
+
   whenSelectChanged: function (evt) {
     this.setState({
       effect: evt.target.value,
@@ -86,21 +103,17 @@ var ToggleBox = React.createClass({
 
     return (
       <div className="flex-box flex-column flex-1 align-items-center">
-        <div>
-          <select value={this.state.effect} onChange={this.whenSelectChanged}>{this.renderEffects()}</select>
-        </div>
+        <AlertContainer ref={(a) => global.msg = a} {...this.alertOptions} />
         <Box className="flex-1 flex-box flex-column align-items-center" style={{backgroundColor: '#f5f5f5'}} onClick={this.whenToggleClicked} instruction="Click!">
           {/*
             Use of key here keeps the component (and its set styles) from persisting across effects.
             Avoids flashing when switching effects.
           */}
           <VelocityComponent key={this.state.effect} animation={animation}>
-            <Box>{Math.floor(this.getTweeningValue('counter'))}</Box>
+            <Box></Box>
           </VelocityComponent>
         </Box>
-        <div style={{ fontStyle: 'italic', fontSize: '11px', padding: '0px 30px', textAlign: 'center' }}>
-          Number counting to show the [non-]effects of rapid re-rendering on the animation.
-        </div>
+        <button onClick={this.showAlert}>show alert</button>
       </div>
     );
   },
